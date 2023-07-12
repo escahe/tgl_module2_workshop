@@ -25,7 +25,7 @@ class Cuenta(models.Model):
         ('CORRIENTE', 'corriente')
     ]
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, related_name='cuentas')
-    numero = models.CharField(max_length=20)
+    numero = models.CharField(max_length=20, unique=True)
     saldo = models.DecimalField(max_digits=10, decimal_places=2)
     tipo_cuenta = models.CharField(max_length=100, choices=TIPO_CUENTA_CHOICES)
 
